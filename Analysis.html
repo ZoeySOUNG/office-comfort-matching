@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zone Comfort Analysis</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+</head>
+<body class="matching-body">
+  <div class="overlay">
+    <!-- Back Button -->
+    <a href="matching.html" class="back-button">
+      <img src="icon.png" alt="Back" />
+    </a>
+
+    <div class="container">
+      <h1>Zone Comfort Analysis</h1>
+      <p>
+        This tool visualises environmental data from <strong>Floors 25, 28, and 30</strong>, collected in <strong>October 2019</strong>.
+        Each scatter plot displays the <strong>average</strong> versus <strong>stability</strong> (standard deviation) of temperature, light, and noise,
+        where each dot represents a single room on the selected floor.
+      </p>
+      <p>
+      The <span class="highlight">green zones</span> indicate recommended comfort areas based on average values:
+      <strong>Temperature 22–26°C</strong>,
+      <strong>Light 10–200 lux</strong>, and
+      <strong>Noise 40–55 dB</strong>.
+      The <span style="color:red; font-weight:bold;">red lines</span> mark the ideal range of stability
+      (standard deviation between 0.4 and 1.2).
+      Lower standard deviation means more consistent conditions throughout the day —
+      an important factor for maintaining comfort and focus.
+    </p>
+
+      <!-- Control -->
+      <div class="controls-row">
+        <div class="dropdown-container">
+          <label for="floor-select">Select Floor:</label>
+          <select id="floor-select" onchange="handleDropdownChange()">
+            <option value="25">Floor 25</option>
+            <option value="28">Floor 28</option>
+            <option value="30">Floor 30</option>
+          </select>
+        </div>
+        <div class="legend-container" id="zone-legend"></div>
+      </div>
+
+      <!-- Three Charts -->
+      <div class="charts">
+        <div class="chart-block">
+          <div id="temp-chart"></div>
+          <div class="chart-tip" id="temp-tip"></div>
+        </div>
+        <div class="chart-block">
+          <div id="light-chart"></div>
+          <div class="chart-tip" id="light-tip"></div>
+        </div>
+        <div class="chart-block">
+          <div id="noise-chart"></div>
+          <div class="chart-tip" id="noise-tip"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
